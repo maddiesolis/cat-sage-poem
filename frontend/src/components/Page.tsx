@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
 import { SlotComponent } from './Slot';
+import { poetrySlots } from '../data/slots';
 
 export interface SlotProps {
     id: number;
@@ -11,25 +12,22 @@ export interface SlotProps {
 
 export const Page = () => {
     // Poetry lines (slots)
-    const [slots, setSlots] = useState<SlotProps[]>([
-        { id: 1, constantText: 'This will', changingTextOptions: ['change', 'not change'], selectedOption: 'change' },
-        { id: 2, constantText: 'Clover is', changingTextOptions: ['cute', 'small', 'black'], selectedOption: 'cute' },
-    ]);
+    const [slots, setSlots] = useState<SlotProps[]>(poetrySlots);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            // Select random slot to update
+            // Randomly update state of slots
+            const randomSlotIndex = Math.floor(Math.random() * slots.length);
             const newSlots = slots.map((slot, index) => {
                 // Clone slot to avoid direct mutation
                 const newSlot = { ...slot };
-                // Randomly update one slot's selectedOption
-                if (Math.floor(Math.random() * slots.length) === index) {
+                // Update slot's selectedOption if it matches randomSlotIndex
+                if (randomSlotIndex === index) {
                     const optionIndex = Math.floor(Math.random() * slot.changingTextOptions.length);
                     newSlot.selectedOption = slot.changingTextOptions[optionIndex];
                 }
                 return newSlot;
             });
-            // Update state of slots
             setSlots(newSlots);
         }, 5000);
 
