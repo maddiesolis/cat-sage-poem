@@ -16,14 +16,14 @@ export const SlotComponent: React.FC<SlotComponentProps> = ({ slot }) => {
             if (index <= maxIndex) {
                 currentText = slot.selectedOption.substring(0, index);
                 setDisplayedText(currentText);
-                setTimeout(() => revealText(index + 1), 150);
+                setTimeout(() => revealText(index + 1), 75);
             }
         };
         revealText(0);
     }, [slot.selectedOption]);
 
     return (
-        <Text h='24px'>
+        <Text h='60px' fontSize='x-large' color='#F4D06F'>
             {slot.constantText} {displayedText}
         </Text>
     );

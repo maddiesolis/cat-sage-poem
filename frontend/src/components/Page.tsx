@@ -29,7 +29,7 @@ export const Page = () => {
                 return newSlot;
             });
             setSlots(newSlots);
-        }, 5000);
+        }, 3000);
 
         return () => clearInterval(interval);
     }, [slots]);
@@ -44,9 +44,11 @@ export const Page = () => {
             justifyContent='center'
             color='white'
         >
-            {slots.map(slot => (
-                <SlotComponent key={slot.id} slot={slot} />
-            ))}
+            <Box h='fit-content' w='600px'>
+                {slots.map(slot => (
+                    <SlotComponent key={slot.id} slot={slot} />
+                ))}
+            </Box>
         </Box>
     );
 };

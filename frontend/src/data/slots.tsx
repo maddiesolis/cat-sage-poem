@@ -7,7 +7,7 @@ export const poetrySlots: SlotProps[] = [
         changingTextOptions: [
             'concealed by a gentle veil,',
             'encased by sentinels,',
-            'beneath this mighty wall,'
+            'beyond this mighty wall,'
         ], 
         selectedOption: 'concealed by a gentle veil,' 
     },
@@ -50,7 +50,6 @@ export const poetrySlots: SlotProps[] = [
         changingTextOptions: [
             'days entangle,',
             'years entangle,',
-            'time entangles,',
             'spirits entangle,',
             'disparities entangle,'
         ], 
