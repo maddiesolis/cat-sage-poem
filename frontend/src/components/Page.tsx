@@ -37,7 +37,7 @@ export const Page = () => {
     return (
         <Box
             h='100vh'
-            bg='black'
+            bg='#121415'
             display='flex'
             flexDirection='column'
             alignItems='center'

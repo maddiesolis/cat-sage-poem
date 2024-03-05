@@ -23,7 +23,7 @@ export const SlotComponent: React.FC<SlotComponentProps> = ({ slot }) => {
     }, [slot.selectedOption]);
 
     return (
-        <Text h='60px' fontSize='x-large' color='#F4D06F'>
+        <Text h='60px' fontSize='x-large' color='#F4F1BB'>
             {slot.constantText} {displayedText}
         </Text>
     );
