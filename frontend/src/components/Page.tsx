@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, useMediaQuery } from '@chakra-ui/react';
 import { SlotComponent } from './Slot';
 import { poetrySlots } from '../data/slots';
 
@@ -11,9 +11,12 @@ export interface SlotProps {
 }
 
 export const Page = () => {
+    const [isLargerThan800] = useMediaQuery('(min-width: 800px)');
+    const [isSmallerThan450] = useMediaQuery('(max-width: 450px)');
+    const [isSmallerThan325] = useMediaQuery('(max-width: 325px)');
+
     // Poetry lines (slots)
     const [slots, setSlots] = useState<SlotProps[]>(poetrySlots);
-
     useEffect(() => {
         const interval = setInterval(() => {
             // Randomly update state of slots
@@ -35,20 +38,75 @@ export const Page = () => {
     }, [slots]);
 
     return (
-        <Box
-            h='100vh'
-            bg='#121415'
-            display='flex'
-            flexDirection='column'
-            alignItems='center'
-            justifyContent='center'
-            color='white'
-        >
-            <Box h='fit-content' w='600px'>
-                {slots.map(slot => (
-                    <SlotComponent key={slot.id} slot={slot} />
-                ))}
-            </Box>
-        </Box>
+        <>
+            {isLargerThan800 && (
+                <Box
+                    h='100vh'
+                    bg='#121415'
+                    display='flex'
+                    flexDirection='column'
+                    alignItems='center'
+                    justifyContent='center'
+                    color='white'
+                >
+                    <Box h='fit-content' w='600px'>
+                        {slots.map(slot => (
+                            <SlotComponent key={slot.id} slot={slot} />
+                        ))}
+                    </Box>
+                </Box>
+            )}
+            {!isLargerThan800 && !isSmallerThan450 && (
+                <Box
+                    h='100vh'
+                    bg='#121415'
+                    display='flex'
+                    flexDirection='column'
+                    alignItems='center'
+                    justifyContent='center'
+                    color='white'
+                >
+                    <Box h='fit-content' w='400px'>
+                        {slots.map(slot => (
+                            <SlotComponent key={slot.id} slot={slot} />
+                        ))}
+                    </Box>
+                </Box>
+            )} 
+            {isSmallerThan450 && !isSmallerThan325 && (
+                <Box
+                    h='100vh'
+                    bg='#121415'
+                    display='flex'
+                    flexDirection='column'
+                    alignItems='center'
+                    justifyContent='center'
+                    color='white'
+                >
+                    <Box h='fit-content' w='350px'>
+                        {slots.map(slot => (
+                            <SlotComponent key={slot.id} slot={slot} />
+                        ))}
+                    </Box>
+                </Box>
+            )}  
+            {isSmallerThan325 && (
+                <Box
+                    h='100vh'
+                    bg='#121415'
+                    display='flex'
+                    flexDirection='column'
+                    alignItems='center'
+                    justifyContent='center'
+                    color='white'
+                >
+                    <Box h='fit-content' w='250px'>
+                        {slots.map(slot => (
+                            <SlotComponent key={slot.id} slot={slot} />
+                        ))}
+                    </Box>
+                </Box>
+            )}  
+        </>
     );
 };
