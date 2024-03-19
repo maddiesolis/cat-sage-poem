@@ -1,22 +1,26 @@
 import { useState, useEffect } from 'react';
 import { Box, useMediaQuery } from '@chakra-ui/react';
-import { SlotComponent } from './Slot';
-import { poetrySlots } from '../data/slots';
+import { DynamicPoemLine } from './PoemLine';
 
-export interface SlotProps {
+export interface PoemLineProps {
     id: number;
     constantText: string;
     changingTextOptions: string[];
     selectedOption: string;
 }
 
-export const Page = () => {
+export interface PageProps {
+    language: 'english' | 'mandarin';
+    lines: PoemLineProps[];
+}
+
+export const Page: React.FC<PageProps> = ({ language, lines }) => {
     const [isLargerThan800] = useMediaQuery('(min-width: 800px)');
     const [isSmallerThan450] = useMediaQuery('(max-width: 450px)');
     const [isSmallerThan325] = useMediaQuery('(max-width: 325px)');
 
     // Poetry lines (slots)
-    const [slots, setSlots] = useState<SlotProps[]>(poetrySlots);
+    const [slots, setSlots] = useState<PoemLineProps[]>(lines);
     useEffect(() => {
         const interval = setInterval(() => {
             // Randomly update state of slots
@@ -38,75 +42,49 @@ export const Page = () => {
     }, [slots]);
 
     return (
-        <>
+        <Box
+            h='100vh'
+            bg='#121415'
+            display='flex'
+            flexDirection='column'
+            alignItems='center'
+            justifyContent='center'
+            color='white'
+        >
+        {language === 'english' ? (
+            <>
             {isLargerThan800 && (
-                <Box
-                    h='100vh'
-                    bg='#121415'
-                    display='flex'
-                    flexDirection='column'
-                    alignItems='center'
-                    justifyContent='center'
-                    color='white'
-                >
-                    <Box h='fit-content' w='600px'>
-                        {slots.map(slot => (
-                            <SlotComponent key={slot.id} slot={slot} />
-                        ))}
-                    </Box>
+                <Box h='fit-content' w='600px'>
+                    {slots.map(slot => (
+                        <DynamicPoemLine key={slot.id} line={slot} />
+                    ))}
                 </Box>
             )}
             {!isLargerThan800 && !isSmallerThan450 && (
-                <Box
-                    h='100vh'
-                    bg='#121415'
-                    display='flex'
-                    flexDirection='column'
-                    alignItems='center'
-                    justifyContent='center'
-                    color='white'
-                >
-                    <Box h='fit-content' w='400px'>
-                        {slots.map(slot => (
-                            <SlotComponent key={slot.id} slot={slot} />
-                        ))}
-                    </Box>
+                <Box h='fit-content' w='400px'>
+                    {slots.map(slot => (
+                        <DynamicPoemLine key={slot.id} line={slot} />
+                    ))}
                 </Box>
             )} 
             {isSmallerThan450 && !isSmallerThan325 && (
-                <Box
-                    h='100vh'
-                    bg='#121415'
-                    display='flex'
-                    flexDirection='column'
-                    alignItems='center'
-                    justifyContent='center'
-                    color='white'
-                >
-                    <Box h='fit-content' w='350px'>
-                        {slots.map(slot => (
-                            <SlotComponent key={slot.id} slot={slot} />
-                        ))}
-                    </Box>
+                <Box h='fit-content' w='350px'>
+                    {slots.map(slot => (
+                        <DynamicPoemLine key={slot.id} line={slot} />
+                    ))}
                 </Box>
             )}  
             {isSmallerThan325 && (
-                <Box
-                    h='100vh'
-                    bg='#121415'
-                    display='flex'
-                    flexDirection='column'
-                    alignItems='center'
-                    justifyContent='center'
-                    color='white'
-                >
-                    <Box h='fit-content' w='250px'>
-                        {slots.map(slot => (
-                            <SlotComponent key={slot.id} slot={slot} />
-                        ))}
-                    </Box>
+                <Box h='fit-content' w='250px'>
+                    {slots.map(slot => (
+                        <DynamicPoemLine key={slot.id} line={slot} />
+                    ))}
                 </Box>
             )}  
-        </>
+            </>
+        ) : (
+            <Box>mandarin poem</Box>
+        )}
+        </Box>
     );
 };
