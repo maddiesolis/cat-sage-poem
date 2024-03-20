@@ -1,82 +1,4 @@
-import { PoemLineProps } from "../components/Page";
-
-export const mandarinPoem: PoemLineProps[] = [
-    { 
-        id: 1, 
-        constantText: '你溫柔的本質', 
-        changingTextOptions: [
-            '被面紗濃罩著，',
-            '被士兵所包圍，',
-            '在城牆的外側，'
-        ], 
-        selectedOption: '被面紗濃罩著，' 
-    },
-    { 
-        id: 2, 
-        constantText: '', 
-        changingTextOptions: [
-            '那股我珍視的擁抱。',
-            '我嘗試跨越這些界限。',
-            '我跪下，投降。',
-            '在那空間裡遊蕩著。'
-        ], 
-        selectedOption: '那股我珍視的擁抱。'
-    },
-    { 
-        id: 3, 
-        constantText: '', 
-        changingTextOptions: [
-            '然而，那隱藏的一面卻難以捉摸，',
-            '然而，我無法觸及未見的一面，',
-            '未見的一面卻吞沒著一股帥氣的謎團，',
-            '然而，我無法揭曉你那埋沒的心意，'
-        ], 
-        selectedOption: '然而，那隱藏的一面卻難以捉摸，'
-    },
-    { 
-        id: 4, 
-        constantText: '', 
-        changingTextOptions: [
-            '我能否完全了解你嗎？',
-            '難道這鑄就著我們的相遇？',
-            '你的核心會否辨識出我的本質？',
-            '我們是否需要完全明白彼此？'
-        ], 
-        selectedOption: '我能否完全了解你嗎？'
-    },
-    { 
-        id: 5, 
-        constantText: '我們的', 
-        changingTextOptions: [
-            '日子交集，',
-            '年份交集，',
-            '時間交集，',
-            '靈魂交集，'
-        ], 
-        selectedOption: 'days entangle,'
-    },
-    { 
-        id: 6, 
-        constantText: '', 
-        changingTextOptions: [
-            'For I am grateful,',
-            'Though clarity eludes me,',
-            'For my chest swells,',
-            'For my spirit dances,',
-        ], 
-        selectedOption: 'For I am grateful,'
-    },
-    { 
-        id: 7, 
-        constantText: '', 
-        changingTextOptions: [
-            'Yet, the heart within stays beyond grasp.',
-            'I have come to accept this eternal state.',
-            'Yet, a vision has been sown, a path to be pursued.'
-        ], 
-        selectedOption: 'Yet, the heart within stays beyond grasp.'
-    },
-]
+import { PoemLineProps } from "../components/EnglishPoem";
 
 export const englishPoem: PoemLineProps[] = [
     { 
@@ -153,5 +75,83 @@ export const englishPoem: PoemLineProps[] = [
             'Yet, a vision has been sown, a path to be pursued.'
         ], 
         selectedOption: 'Yet, the heart within stays beyond grasp.'
+    },
+]
+
+export const mandarinPoem: PoemLineProps[] = [
+    { 
+        id: 1, 
+        constantText: '你溫柔的本質', 
+        changingTextOptions: [
+            '被面紗濃罩著，',
+            '被士兵所包圍，',
+            '在城牆的外側，'
+        ], 
+        selectedOption: '被面紗濃罩著，' 
+    },
+    { 
+        id: 2, 
+        constantText: '', 
+        changingTextOptions: [
+            '那股我珍視的擁抱。',
+            '我嘗試跨越這些界限。',
+            '我跪下，投降。',
+            '在那空間裡遊蕩著。'
+        ], 
+        selectedOption: '那股我珍視的擁抱。'
+    },
+    { 
+        id: 3, 
+        constantText: '', 
+        changingTextOptions: [
+            '然而，那隱藏的一面卻難以捉摸，',
+            '然而，我無法觸及未見的一面，',
+            '未見的一面卻吞沒著一股帥氣的謎團，',
+            '然而，我無法揭曉你那埋沒的心意，'
+        ], 
+        selectedOption: '然而，那隱藏的一面卻難以捉摸，'
+    },
+    { 
+        id: 4, 
+        constantText: '', 
+        changingTextOptions: [
+            '我能否完全了解你嗎？',
+            '難道這鑄就著我們的相遇？',
+            '你的核心會否辨識出我的本質？',
+            '我們是否需要完全明白彼此？'
+        ], 
+        selectedOption: '我能否完全了解你嗎？'
+    },
+    { 
+        id: 5, 
+        constantText: '我們的', 
+        changingTextOptions: [
+            '日子交集，',
+            '年份交集，',
+            '靈魂交集，',
+            '差異交集，'
+        ], 
+        selectedOption: '日子交集，'
+    },
+    { 
+        id: 6, 
+        constantText: '', 
+        changingTextOptions: [
+            '因此我感激，',
+            '雖然我仍在尋求清晰的答案，',
+            '我澎拜的心跳，',
+            '讓我精神鼓舞，',
+        ], 
+        selectedOption: '因此我感激，'
+    },
+    { 
+        id: 7, 
+        constantText: '', 
+        changingTextOptions: [
+            '然而，內心仍然無法觸及。',
+            '我豁然接受這種永恆的狀態。',
+            '然而，我卻渴望著尋找願景的道路。'
+        ], 
+        selectedOption: '然而，內心仍然無法觸及。'
     },
 ]

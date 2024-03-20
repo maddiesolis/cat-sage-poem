@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Box, useMediaQuery } from '@chakra-ui/react';
-import { DynamicPoemLine } from './PoemLine';
+import { mandarinPoem } from '../data/poems';
+import { MandarinPoemLine } from './MandarinPoemLine';
 
 export interface PoemLineProps {
     id: number;
@@ -9,23 +10,18 @@ export interface PoemLineProps {
     selectedOption: string;
 }
 
-export interface PageProps {
-    language: 'english' | 'mandarin';
-    lines: PoemLineProps[];
-}
-
-export const Page: React.FC<PageProps> = ({ language, lines }) => {
+export const MandarinPoem: React.FC = () => {
     const [isLargerThan800] = useMediaQuery('(min-width: 800px)');
     const [isSmallerThan450] = useMediaQuery('(max-width: 450px)');
     const [isSmallerThan325] = useMediaQuery('(max-width: 325px)');
+    const [currentPoem, setCurrentPoem] = useState<PoemLineProps[]>(mandarinPoem);
 
-    // Poetry lines (slots)
-    const [slots, setSlots] = useState<PoemLineProps[]>(lines);
+    // Randomly update lines within poem
     useEffect(() => {
         const interval = setInterval(() => {
             // Randomly update state of slots
-            const randomSlotIndex = Math.floor(Math.random() * slots.length);
-            const newSlots = slots.map((slot, index) => {
+            const randomSlotIndex = Math.floor(Math.random() * currentPoem.length);
+            const newSlots = currentPoem.map((slot, index) => {
                 // Clone slot to avoid direct mutation
                 const newSlot = { ...slot };
                 // Update slot's selectedOption if it matches randomSlotIndex
@@ -35,11 +31,11 @@ export const Page: React.FC<PageProps> = ({ language, lines }) => {
                 }
                 return newSlot;
             });
-            setSlots(newSlots);
+            setCurrentPoem(newSlots);
         }, 3000);
 
         return () => clearInterval(interval);
-    }, [slots]);
+    }, [currentPoem]);
 
     return (
         <Box
@@ -51,40 +47,36 @@ export const Page: React.FC<PageProps> = ({ language, lines }) => {
             justifyContent='center'
             color='white'
         >
-        {language === 'english' ? (
             <>
             {isLargerThan800 && (
                 <Box h='fit-content' w='600px'>
-                    {slots.map(slot => (
-                        <DynamicPoemLine key={slot.id} line={slot} />
+                    {currentPoem.map(slot => (
+                        <MandarinPoemLine key={slot.id} text={slot} />
                     ))}
                 </Box>
             )}
             {!isLargerThan800 && !isSmallerThan450 && (
                 <Box h='fit-content' w='400px'>
-                    {slots.map(slot => (
-                        <DynamicPoemLine key={slot.id} line={slot} />
+                    {currentPoem.map(slot => (
+                        <MandarinPoemLine key={slot.id} text={slot} />
                     ))}
                 </Box>
             )} 
             {isSmallerThan450 && !isSmallerThan325 && (
                 <Box h='fit-content' w='350px'>
-                    {slots.map(slot => (
-                        <DynamicPoemLine key={slot.id} line={slot} />
+                    {currentPoem.map(slot => (
+                        <MandarinPoemLine key={slot.id} text={slot} />
                     ))}
                 </Box>
             )}  
             {isSmallerThan325 && (
                 <Box h='fit-content' w='250px'>
-                    {slots.map(slot => (
-                        <DynamicPoemLine key={slot.id} line={slot} />
+                    {currentPoem.map(slot => (
+                        <MandarinPoemLine key={slot.id} text={slot} />
                     ))}
                 </Box>
             )}  
             </>
-        ) : (
-            <Box>mandarin poem</Box>
-        )}
         </Box>
     );
 };

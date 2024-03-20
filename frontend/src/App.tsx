@@ -1,14 +1,11 @@
 import { extendTheme, ChakraProvider } from '@chakra-ui/react'
-import { Page } from './components/Page';
-import '@fontsource/libre-baskerville';
+import { EnglishPoem } from './components/EnglishPoem';
 import '@fontsource/noto-serif-tc';
-import { englishPoem } from './data/poems';
 import { useEffect, useState } from 'react';
+import { MandarinPoem } from './components/MandarinPoem';
 
 const theme = extendTheme({
   fonts: {
-    // heading: 'Libre Baskerville, serif',
-    // body: 'Libre Baskerville, serif',
     heading: 'Noto Serif TC, serif',
     body: 'Noto Serif TC, serif'
   }
@@ -26,11 +23,15 @@ function App() {
     return () => {
       document.removeEventListener('click', toggleLanguage);
     };
-  }, []);
+  }, [language]);
   
   return (
     <ChakraProvider theme={theme}>
-      <Page lines={englishPoem} language={language}/>
+      {language === 'mandarin' ? (
+        <MandarinPoem />
+      ) : (
+        <EnglishPoem />
+      )}
     </ChakraProvider>
   );
 }
