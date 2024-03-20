@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { PoemLineProps } from "./EnglishPoem";
 
 interface DynamicPoemLineProps {
-    text: PoemLineProps
+    text: PoemLineProps;
+    interval: number;
 }
-export const EnglishPoemLine: React.FC<DynamicPoemLineProps> = ({ text }) => {
+export const DynamicPoemLine: React.FC<DynamicPoemLineProps> = ({ text, interval }) => {
     const [isLargerThan800] = useMediaQuery('(min-width: 800px)');
     const [isSmallerThan450] = useMediaQuery('(max-width: 450px)');
     const [isSmallerThan325] = useMediaQuery('(max-width: 325px)');
@@ -19,7 +20,7 @@ export const EnglishPoemLine: React.FC<DynamicPoemLineProps> = ({ text }) => {
             if (index <= maxIndex) {
                 currentText = text.selectedOption.substring(0, index);
                 setDisplayedText(currentText);
-                setTimeout(() => revealText(index + 1), 75);
+                setTimeout(() => revealText(index + 1), interval);
             }
         };
         revealText(0);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Box, useMediaQuery } from '@chakra-ui/react';
 import { mandarinPoem } from '../data/poems';
-import { MandarinPoemLine } from './MandarinPoemLine';
+import { DynamicPoemLine } from './DynamicPoemLine';
 
 export interface PoemLineProps {
     id: number;
@@ -51,28 +51,28 @@ export const MandarinPoem: React.FC = () => {
             {isLargerThan800 && (
                 <Box h='fit-content' w='600px'>
                     {currentPoem.map(slot => (
-                        <MandarinPoemLine key={slot.id} text={slot} />
+                        <DynamicPoemLine key={slot.id} text={slot} interval={115}/>
                     ))}
                 </Box>
             )}
             {!isLargerThan800 && !isSmallerThan450 && (
                 <Box h='fit-content' w='400px'>
                     {currentPoem.map(slot => (
-                        <MandarinPoemLine key={slot.id} text={slot} />
+                        <DynamicPoemLine key={slot.id} text={slot} interval={115}/>
                     ))}
                 </Box>
             )} 
             {isSmallerThan450 && !isSmallerThan325 && (
                 <Box h='fit-content' w='350px'>
                     {currentPoem.map(slot => (
-                        <MandarinPoemLine key={slot.id} text={slot} />
+                        <DynamicPoemLine key={slot.id} text={slot} interval={115}/>
                     ))}
                 </Box>
             )}  
             {isSmallerThan325 && (
                 <Box h='fit-content' w='250px'>
                     {currentPoem.map(slot => (
-                        <MandarinPoemLine key={slot.id} text={slot} />
+                        <DynamicPoemLine key={slot.id} text={slot} interval={115}/>
                     ))}
                 </Box>
             )}  
