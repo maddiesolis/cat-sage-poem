@@ -81,33 +81,33 @@ export const englishPoem: PoemLineProps[] = [
 export const mandarinPoem: PoemLineProps[] = [
     { 
         id: 1, 
-        constantText: '你溫柔的本質', 
+        constantText: '你的本質，', 
         changingTextOptions: [
-            '被面紗濃罩著，',
-            '被士兵所包圍，',
-            '在城牆的外側，'
+            '覆蓋著溫柔的面紗，',
+            '被衛兵包圍著，',
+            '在高聳的城牆的另一側，'
         ], 
-        selectedOption: '被面紗濃罩著，' 
+        selectedOption: '覆蓋著溫柔的面紗，' 
     },
     { 
         id: 2, 
         constantText: '', 
         changingTextOptions: [
-            '那股我珍視的擁抱。',
-            '我嘗試跨越這些界限。',
+            '那段我珍視的相擁。',
+            '我輕輕的試探那些界限。',
             '我跪下，投降。',
             '在那空間裡遊蕩著。'
         ], 
-        selectedOption: '那股我珍視的擁抱。'
+        selectedOption: '那段我珍視的相擁。'
     },
     { 
         id: 3, 
         constantText: '', 
         changingTextOptions: [
             '然而，那隱藏的一面卻難以捉摸，',
-            '然而，我無法觸及未見的一面，',
-            '未見的一面卻吞沒著一股帥氣的謎團，',
-            '然而，我無法揭曉你那埋沒的心意，'
+            '然而，我無法觸及躲藏的一面，',         
+            '隱藏的那一面仍有著帥氣的神秘，',
+            '然而，我唯一的心願是你能揭開你的面紗，'
         ], 
         selectedOption: '然而，那隱藏的一面卻難以捉摸，'
     },
@@ -115,32 +115,32 @@ export const mandarinPoem: PoemLineProps[] = [
         id: 4, 
         constantText: '', 
         changingTextOptions: [
-            '我能否完全了解你嗎？',
-            '難道這鑄就著我們的相遇？',
-            '你的核心會否辨識出我的本質？',
+            '真實的你能進入我的視野嗎？',
+            '我能夠造就彼此的交集嗎？',
+            '靈魂能相互理解嗎？',
             '我們是否需要完全明白彼此？'
         ], 
-        selectedOption: '我能否完全了解你嗎？'
+        selectedOption: '真實的你能進入我的視野嗎？'
     },
     { 
         id: 5, 
         constantText: '我們的', 
         changingTextOptions: [
-            '日子交集，',
-            '年份交集，',
-            '靈魂交集，',
+            '時間交錯，',
+            '歲月交疊，',
+            '靈魂交織，',
             '差異交集，'
         ], 
-        selectedOption: '日子交集，'
+        selectedOption: '時間交錯，'
     },
     { 
         id: 6, 
         constantText: '', 
         changingTextOptions: [
             '因此我感激，',
-            '雖然我仍在尋求清晰的答案，',
+            '雖然我仍在尋求正解，',
             '我澎拜的心跳，',
-            '讓我精神鼓舞，',
+            '我內心狂舞，',
         ], 
         selectedOption: '因此我感激，'
     },
@@ -148,10 +148,10 @@ export const mandarinPoem: PoemLineProps[] = [
         id: 7, 
         constantText: '', 
         changingTextOptions: [
-            '然而，內心仍然無法觸及。',
+            '然而，真心或許依然無法觸及。',
             '我豁然接受這種永恆的狀態。',
-            '然而，我卻渴望著尋找願景的道路。'
+            '然而，目標有了途徑，願景也有了雛形。'
         ], 
-        selectedOption: '然而，內心仍然無法觸及。'
+        selectedOption: '然而，真心或許依然無法觸及。'
     },
 ]
