@@ -81,13 +81,13 @@ export const englishPoem: PoemLineProps[] = [
 export const mandarinPoem: PoemLineProps[] = [
     { 
         id: 1, 
-        constantText: '你的本質覆', 
+        constantText: '你的本質，', 
         changingTextOptions: [
-            '蓋著溫柔的面紗，',
+            '覆蓋著溫柔的面紗，',
             '被衛兵包圍著，',
             '在高聳的城牆的另一側，'
         ], 
-        selectedOption: '蓋著溫柔的面紗，' 
+        selectedOption: '覆蓋著溫柔的面紗，' 
     },
     { 
         id: 2, 
@@ -105,7 +105,7 @@ export const mandarinPoem: PoemLineProps[] = [
         constantText: '', 
         changingTextOptions: [
             '然而，那隱藏的一面卻難以捉摸，',
-            '然而，我無法觸及躲藏的一面，',         // ask about this one
+            '然而，我無法觸及躲藏的一面，',         
             '隱藏的那一面仍有著帥氣的神秘，',
             '然而，我唯一的心願是你能揭開你的面紗，'
         ], 
@@ -115,12 +115,12 @@ export const mandarinPoem: PoemLineProps[] = [
         id: 4, 
         constantText: '', 
         changingTextOptions: [
-            '真實的你能進入我的視界嗎？',
+            '真實的你能進入我的視野嗎？',
             '我能夠造就彼此的交集嗎？',
             '靈魂能相互理解嗎？',
             '我們是否需要完全明白彼此？'
         ], 
-        selectedOption: '真實的你能進入我的視界嗎？'
+        selectedOption: '真實的你能進入我的視野嗎？'
     },
     { 
         id: 5, 
@@ -148,10 +148,10 @@ export const mandarinPoem: PoemLineProps[] = [
         id: 7, 
         constantText: '', 
         changingTextOptions: [
-            '然而，真心依然無法觸及。',
+            '然而，真心或許依然無法觸及。',
             '我豁然接受這種永恆的狀態。',
-            '然而，目標有了途徑 願景也有了雛形。'
+            '然而，目標有了途徑，願景也有了雛形。'
         ], 
-        selectedOption: '然而，真心依然無法觸及。'
+        selectedOption: '然而，真心或許依然無法觸及。'
     },
 ]
